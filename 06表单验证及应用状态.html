@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app>
+    <head>
+       <script type="text/javascript" src="angular.min.js"></script>
+    </head>
+    <style>
+    input.ng-invalid {
+        border-color: red;
+    }
+    input.ng-valid {
+        border-color: transparent;
+    }
+    </style>
+<body>
+  <div>
+      <b>Invoice:</b>
+      <br>
+      <br>
+      <form name="myForm">
+        <table>
+            <tr><td>Quantity</td><td>Cost</td></tr>
+            <tr>
+                <td><input type="email" name="myAddress" ng-model="text"></td>
+                <td><input type="text" name="myAddress" value="{{myForm.myAddress.$viewValue}}"></td>
+                <td><span ng-show="myForm.myAddress.$error.eamil">不是一个合法的邮箱地址</span></td>
+            </tr>
+        </table>
+      <hr>
+      {{myForm.myAddress.$valid}}
+      {{myForm.myAddress.$dirty}}
+      {{myForm.myAddress.$touched}}
+      {{myForm.myAddress}}
+      </form>
+      <hr>
+  </div>
+
+</body></html>
+

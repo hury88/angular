@@ -1,0 +1,34 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作用域</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+</head>
+<body ng-app>
+
+<div ng-controller="c1">{{name}}</div>
+<div ng-controller="c2">{{name}}</div>
+<div ng-controller="c3">{{name}}</div>
+</body>
+</html>
+<script>
+	function c1($scope){
+		$scope.name = 'hury';
+	}
+</script> -->
+<!doctype html>
+<html ng-app="myApp" ng-controller="myCtrl">
+  <head>
+	<script type="text/javascript" src="angular.min.js"></script>
+  </head>
+  <body>
+  	<input type="text" ng-model="name">
+  	<div contentEditable="true" ng-model="content">{{greeting}}</div>
+  	<input type="text" ng-model="title">
+	<button ng-click="hello()">click</button>
+<!-- 格式成时间格式 -->
+	<li ng-repeat="x in names | filter:title">{{x.id|add}} {{x.title}} {{x.date}} {{x.sendtime|date:"yyyy-MM-dd HH:mm:ss"}}<!-- <img src="{{x.img1}}" width="80" alt="{{x.title}}"> --></li>
+  </body>
+</html>
+<script src="angular.app.min.js"></script>

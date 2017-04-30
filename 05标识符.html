@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="myApp">
+    <head>
+       <script type="text/javascript" src="angular.min.js"></script>
+    </head>
+<body ng-app="myApp">
+<div class="menu" ng-app="" ng-init='news=<?php ECHO json_encode(M('news_cats')->field('id,catname')->select())?>'>
+  <!-- <b ng-repeat="x in news">{{x.id +" : "+ x.catname}}<br></b> -->
+  <!-- directive: runoob-directive -->
+  <!-- <div class="runoob-derective"></div> -->
+  <div runoob-derective></div>
+ </div>
+ <script>
+  var app = angular.module('myApp',[])
+  app.directive('runoobDerective',function(){
+    return {
+      // restrict : 'M',
+      restrict : 'A',
+      // replace : true,
+      template : '<h1>111</h1>'
+    };
+  })
+ </script>
+</body></html>
+

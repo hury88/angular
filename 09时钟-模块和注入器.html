@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+	<script type="text/javascript" src="angular.min.js"></script>
+  </head>
+  <body>
+	<div ng-controller="myCtrl">
+	    Current time is: {{ time.now }}
+	  </div>
+	  <button ng-click="show=true">show</button>
+	  <dialog title="Hello {{username}}."
+	      visible="show"
+	      on-cancel="show = false"
+	      on-ok="show = false; doSomething()">
+	      Body goes here: {{username}} is {{title}}.
+	  </dialog>
+  </body>
+</html>
+<script>
+	var app = angular.module('myApp', [])
+	  // Declare new object call time,
+	  // which will be available for injection
+	  app.controller('myCtrl',myCtrl);
+	  app.factory('time', function($timeout) {
+	    var time = {};
+
+	    (function tick() {
+	      time.now = new Date().toString();
+	      $timeout(tick, 1000);
+	    })();
+	    return time;
+	  });
+
+	// Notice that you can simply ask for time
+	// and it will be provided. No need to look for it.
+	function myCtrl($scope, time) {
+	  $scope.time = time;
+	}
+</script>
