@@ -1,0 +1,44 @@
+<!-- $location 服务 -->
+<!-- <!doctype html>
+<html ng-app="myApp">
+  <head>
+	<script type="text/javascript" src="angular.min.js"></script>
+  </head>
+  <body>
+	<div ng-controller="myCtrl">
+		{{absUrl}} <br>
+		{{path}}
+	  </div>
+
+  </body>
+</html>
+<script>
+	angular.module('myApp', []).controller('myCtrl',myCtrl);
+	function myCtrl($scope, $location) {
+	  $scope.absUrl = $location.absUrl();
+	  $scope.path = $location.path();
+	}
+</script>
+ -->
+
+ <!-- $http 服务网 -->
+ <!doctype html>
+ <html ng-app="myApp">
+   <head>
+ 	<script type="text/javascript" src="angular.min.js"></script>
+   </head>
+   <body>
+ 	<div ng-controller="myCtrl">
+ 		{{http}}
+ 	  </div>
+
+   </body>
+ </html>
+ <script>
+ 	angular.module('myApp', []).controller('myCtrl',myCtrl);
+ 	function myCtrl($scope, $http) {
+ 		$http.get('httpGet.php').then(function(reponse){
+ 			$scope.http = reponse.data;
+ 		})
+ 	}
+ </script>
